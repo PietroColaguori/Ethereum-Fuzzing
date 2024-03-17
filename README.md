@@ -9,4 +9,8 @@ The smart contract is named "Taxpayer.sol" and it models a "person", with two sm
 2. `function divorce() public`: enables the contract to divorce from the contract previously married with the above function, in order to do so the conditions that must hold are: the contract must be married to a contract with a valid address, the contract divorced must be married with the invoking contract and in the end both contract must not be married anymore, meaning that I set their `spouse` field to `address(0)`.
 3. `function transferAllowance(uint change) public`: enables the invoking contract to transfer tax allowance to the spouse, we implement some obvious conditions (e.g. tax allowance transferred must be lower or equal to the tax allowance of the contract) and we also ensure that the sum of the invoking contract's initial tax allowance and the spouse's initial tax allowance is equal to the sum of the invoking contract's final tax allowance and the spouse's final tax allowance (`myInitial + spouseInitial == myFinal + spouseFinal`).
 
+## Table of Contents
+1. `SSA_Report.pdf`: this file contains a detailed report regarding how I used Echidna to perform the fuzzing and how it prompted me to correct the security weaknesses in the initial contract provided.
+2. `Taxpayer.sol`: this Solidity file contains the smart contract implementing the above described interface, as well as another contract that inherits from it containing the functions used to perform fuzzing with Echidna.
+
 
